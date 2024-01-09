@@ -353,7 +353,11 @@ ABC Resorts, a leading hospitality brand, has provided opulent experiences globa
 
 While their online booking system was key, the recent acquisition of ResortPro presents integration challenges due to differing interfaces and data formats.
 
-ABC aims for seamless assimilation without disrupting the user experience.
+> ABC aims for seamless assimilation without disrupting the user experience.
+
+    ↑  Bisa facade maupun
+       adapter yang connect both
+       application together
 
 ㅤ
 
@@ -361,11 +365,23 @@ To stay competitive, ABC Resorts seeks to optimize its pricing strategy.
 
 > The current fixed model lacks adaptability to market changes, leading to plans for a dynamic pricing system that adjusts based on factors like seasonal demand and competitor pricing.
 
+    ↑  Strategy / State pattern
+       soalnya bisa tergantung
+       bagaimana keadaan
+       pengunjung
+       maupun kebijakan
+       pihak ABC Resorts
+
 ㅤ
 
 In enhancing guest services, ABC Resorts acknowledges evolving traveler expectations.
 
 > They aim to modernize their robust but inflexible guest services system to incorporate new technologies and communication channels, accommodating future advancements.
+
+    ↑  Bridge pattern, sebab ia
+       memungkinkan separasi
+       dari abstraction
+       dengan implementation
 
 ㅤ
 
@@ -373,11 +389,18 @@ As ABC Resorts expands accommodations, managing diverse room types and packages 
 
 > They plan to revamp the accommodation management system for unified handling of individual accommodations and package structures, simplifying operations.
 
+    ↑  Jika ada keyword
+       'structures', pasti
+       Composite pattern
+
 ㅤ
 
 ABC Resorts' diverse departments lack a centralized communication mechanism, causing coordination challenges.
 
 > They aim to implement a cohesive system promoting better communication and collaboration across departments.
+
+    ↑  Bisa pakai Mediator
+       maupun Composite pattern
 
 ㅤ
 
@@ -385,15 +408,25 @@ In customizing room features, ABC Resorts faces challenges with the current infl
 
 > They seek a solution allowing dynamic customization without relying on an excessive number of subclasses, avoiding complexities associated with the current inheritance model.
 
+    ↑  Menghindari inheritance bisa
+       diakalin pakai Decorator
+       pattern, yang mana ia
+       menambahkan functionality
+       tanpa perlu inherit
+
 ㅤ
 
 For operational excellence, ABC Resorts aims to
 > implement a structured solution for managing diverse guest requests and commands for better organization, execution and monitoring.
 
+    ↑ Command pattern
+
 ㅤ
 
 ABC Resorts manages extensive guest data and seeks a solution for
 > extracting meaningful insights without modifying existing data models, allowing dynamic addition of new analysis techniques.
+
+    ↑  Visitor pattern
 
 ㅤ
 
