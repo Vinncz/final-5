@@ -303,43 +303,74 @@ This is the Chain of Responsibility pattern!
 
 ㅤ
 
-### Command
-This is the Command pattern!
+### Command, Strategy, and State
+Yang membedakan Command pattern dengan Strategy adalah:
+
+> **COMMAND DITARUH DI CLASS YANG MENGURUS CLASS LAIN:**
+
+ - Imagine lu pesen Boba Sundae di Mixue;
+
+ - Lu gatau apa" tentang nyiapin Boba Sundae;
+
+ - Tapi ketika lu pesen itu ke staffnya, mereka knows what to do.
+
+ - Sehingga, mereka-lah yang operasikan mesin eskrim-nya dan prepare semua utk lu.
+
+- In this essence, you just ordered them to prepare Boba Sundae.
+
+ㅤ
+
+> **STRATEGY DITARUH DI DALAM CLASS WHOSE METHOD DIPANGGIL UNTUK MENGEKSEKUSI SOMETHING**
+
+- Imagine lu mau pergi ke kampus;
+
+- Lu bisa naik Mobil/Motor/Public Transport.
+
+- Lu boleh pilih yang manapun, dan hasilnya akan sama: lu sampai di kampus.
+
+- So in essence, lu punya attribut strategy, dan ketika lu mau ke kampus, lu execute that strategy.
+
+ㅤ
+
+**STATE hampir sama dengan STRATEGY pattern, dimana ia disimpan di class yang bersangkutan, dan based on what state the class has, behavior yang dilakukannya bisa berbeda.**
+
+Perbedaannya adalah
+> PADA STATE PATTERN, CLASS ITU SENDIRI BISA MENGGANTI STATE YANG DIMILIKINYA; DIMANA STRATEGY HARUS DIATUR DARI LUAR
 
 ㅤ
 
 ### Iterator
-This is the Iterator pattern!
+Alternative for foreach loop.
 
 ㅤ
 
 ### Mediator
-This is the Mediator pattern!
+Imagine pattern ini sebagai kondisi kabel di belakang monitor: **berantakan, tapi memungkinkan hasilnya untuk terjadi.**
+
+> Adalah pattern yang men-define tempat dimana object-object berhubungan satu sama lain.
+
+Anggap React button yang pakai useState hook untuk increment counter.
+
+Counter tsb harus di simpan di suatu tempat, dan pas button di-click: retrieve data yang disimpan itu, tambahin satu, dan masukkan yang baru ke storage dan display itu.
+
+Mediator kurleb gitu.
 
 ㅤ
 
 ### Momento
-This is the Momento pattern!
+Menyimpan snapshot atas keadaan/kondisi suatu object pada suatu waktu.
+
+Biasanya deep-copy sebuah object, dan simpan itu kedalam List yang semakin index-nya tinggi, semakin recent itu.
 
 ㅤ
 
 ### Observer
-This is the Observer pattern!
-
-ㅤ
-
-### State
-This is t State pattern!
-
-ㅤ
-
-### Strategy
-This is the Strategy pattern!
+Memungkinkan semua 'subscribers' untuk diberi tahu ketika object yang mereka 'observe' telah berganti datanya.
 
 ㅤ
 
 ### Template Method
-This is the Method pattern!
+Merupakan method yang ada didalam sebuah abstract class: dimana ia memanggil abstract method lain, yang implementasinya diserahkan ke class implementor.
 
 ㅤ
 
