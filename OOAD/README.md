@@ -164,8 +164,65 @@ This is Designing Tests.
 ㅤ
 
 ### Developing Documentation
-This is Developing Documentation.
 
+> Remember, without documentation, your system's a recipe for disaster! So grab your pen, write it down, and avoid the mystery-meat madness!
+
+System documentation is like a detailed recipe for building and maintaining a complex system.
+
+It's not just an optional garnish, but a core ingredient that ensures everything functions smoothly and deliciously.
+
+Here's why it's so important:
+
+1. **Clarity and Knowledge Transfer**:
+
+    - Documents act as a single source of truth, capturing all essential information about a system. No more relying on tribal knowledge or memory lapses.
+
+    - New team members can quickly onboard and understand how the system works, reducing training time and frustration.
+
+    - Stakeholders can stay informed about the system's purpose, functionality, and limitations.
+
+2. **Improved Efficiency and Quality**:
+
+    - Documentation guides development, reduces duplication of effort, and prevents reinventing the wheel.
+
+    - Clear instructions and procedures minimize errors and inconsistencies, leading to better quality systems.
+
+    - Well-documented systems are easier to troubleshoot and debug, saving time and resources.
+
+3. **Enhanced Collaboration and Communication**:
+
+    - Documents establish a common language and understanding among different teams working on the system.
+
+    - Collaboration becomes smoother when everyone refers to the same information and terminology.
+
+    - Documentation facilitates communication with external stakeholders like clients or regulators.
+
+4. **Future-proofing and Maintainability**:
+
+    - As systems evolve, well-maintained documentation helps developers understand existing code and make informed changes.
+
+    - It becomes easier to add new features or adapt to changing requirements without getting lost in spaghetti code.
+
+    - Documentation ensures the system's longevity and value even when the original developers move on.
+
+Types of Documentation:
+
+- **System Documentation**: that assists programmers/analyst to build and maintain the system
+- **User Documentation**: that assists users on how to operate the system; as most of them will not read the manual before using the system.
+
+- **Reference Documents**: tell operators on how to perform a specific tasks.
+- **Procedure Manuals**: describes how to perorm business tasks; and where each procedure entails multiple tasks
+- **Tutorials**: teach people on how to use specific components of a system.
+
+Structure of a Documentation:
+1. Develop a set of navigation controls that spans different topics of documentation.
+2. Topics generally come from 3 sources:
+   - Commands and menus in the user interface
+   - How to perform certain tasks, which can be found in:
+     - Use scenarios
+     - WNDs
+     - Real use-cases
+   - Definitions of important terms
 ㅤ
 
 
@@ -205,10 +262,20 @@ In response to this, there exsits the following infrastructure:
 
 ### Infrastructure Design in Deployment Diagram & Network Model
 
-Deployment Diagram visualizes the relationships between **HARDWARE** components in a system.
+**Deployment Diagram**: This is like the blueprint of your castle. It shows all the important parts:
 
-Network Model visualizes **`WHICH SYSTEM COMPONENTS ARE CONSIDERED IMPORTANT ENOUGH`** and **`WHERE ARE THEY LOCATED USING GEO LOCATION`**.
+- **Towers**: These are your software components, like the main hall, kitchen, or dragon stables (metaphorically speaking!).
+- **Walls & Bridges**: These are your servers and networks, connecting everything together.
+- **Drawbridges & Gates**: These are security measures that control who can access different parts of the castle.
 
-Purpose of a network model:
-- Convey the complexity of the system
-- Show how the system's software components will fit together.
+ㅤ
+
+**Network Model**: This is like the plumbing and wiring of your castle. It shows:
+
+- **Pipes & Tunnels**: These are data channels, carrying information between towers through the walls and bridges.
+- **Pumps & Levers**: These are network devices like routers and switches, directing the flow of information.
+- **Filters & Traps**: These are security tools that protect your castle from unwanted visitors (or data packets).
+
+ㅤ
+
+**How they're related**: Just like how the plumbing brings water to different parts of the castle, the network model carries data to different software components in the deployment diagram. The deployment diagram shows what components exist, while the network model shows how they talk to each other.
