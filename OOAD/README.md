@@ -159,8 +159,96 @@ In user interfaces, the following are types of navigation controls:
 ㅤ
 
 ### Designing Tests
-This is Designing Tests.
 
+> Test ada untuk memastikan apabila code yang ditulis behave as expected.
+
+ㅤ
+
+"behave as expected" means bahwa test memastikan agar code terhindar dari error-error berikut:
+- **Compile Error**: code tidak bisa di-compile (syntax err)
+- **Runtime Error**: code meledak immidiately ketika dijalankan
+- **Logic Error**: code berjalan seperti normal, tapi hasil yang dikeluarkan diverge dari ekspektasi.
+
+ㅤ
+
+Testing bisa dilakukan kapan aja; tapi idealnya dilakukan continuously throughout dev process.
+
+Effort untuk testing biasanya lebih besar kebanding aktivitas lainnya.
+
+ㅤ
+
+Sebelum lu bisa uji suatu code, lu harus:
+1. Plan the test
+
+   - Setiap test harus punya objective yang perlu dibuktikan (biasanya fokus ke suatu use cases)
+
+   - Tulis semua constraint yang perlu dipenuhi agar lulus test.
+
+2. Pilih tipenya
+   
+   - **UNIT TESTS**:
+
+     Test yang fokus ke **SATU** class/method/function
+
+     Dia terbagi menjadi 2 jenis:
+
+     > **A. Black Box Testing**
+     >
+     > Test yang lu lakukan **`KETIKA LU GATAU INNER WORKING`** object yang lu uji.
+     >
+     > Berhubungan dengan:
+     > - CRC Cards
+     > - Behavior State Machines
+     > - Method Contracts
+     > 
+     > `"User bisa ngapain? Itu yang gw tes"`
+
+        ㅤ
+
+     > **B. White Box Testing**
+     >
+     > Test yang lu lakukan **`KETIKA LU TAU INNER WORKING`** object yang lu uji.
+     > 
+     > Misal lu mau ngetes apakah logic validasi berhasil/gak.
+     > 
+     > `"Gw tau apa yang code ini should behave like, jadi gw coba-coba nyari keadaan dimana code ini melenceng dari ekspektasi"`
+    
+        ㅤ
+
+   - **INTEGRATION TESTS**:
+  
+      Test yang menguji **`APAKAH DUA ATAU LEBIH class/method/function yang harus menyelesaikan tugas bersama BEHAVE AS EXPECTED`**
+      
+      Ada 4 macam integration tests:
+      
+      1. User interface testing
+      2. Use case testing
+      3. Interaction testing
+      4. System interface testing
+    
+        ㅤ
+
+   - **SYSTEM TESTS**:
+      
+      Test yang menguji **`SELURUH class/method/function BEKERJA SAMA TANPA ERROR`** .
+      
+      Dia itu mirip sama integration tests, namun lebih besar scope-nya.
+    
+        ㅤ
+   - **ACCEPTANCE TESTS**:
+      
+      Test yang menguji **`APAKAH SYSTEM YANG DIBUAT SUDAH MEMENUHI SELURUH KEBUTUHAN CLIENT (SUPPORT SEMUA USE CASE)`**
+      
+      Ada 2 macam:
+      
+      - **Alpha Testing:**
+        
+        Data yang digunakan itu buatan
+        
+      - **Beta Testing:**
+        
+        Data yang digunakan itu REAL, dengan emphasis ke edge cases yang di-expect akan muncul
+        
 ㅤ
 
 ### Developing Documentation
@@ -248,14 +336,14 @@ A system consists of two parts:
 
 \
 In response to this, there exsits the following infrastructure:
-|  | Server-based | Client-based | Client-Server |
-|--|--|--|--|
-| Cost of Infrastructure | Very High | Medium | Low |
-| Cost of Development | Medium | Low | High |
-| Ease of Development | Low | High | Low-Medium |
-| Interface Capabilities | Low | High | High |
-| Control & Security | High | Low | Medium |
-| Scalability | Low | Medium | High |
+|                        | Server-based | Client-based | Client-Server |
+| ---------------------- | ------------ | ------------ | ------------- |
+| Cost of Infrastructure | Very High    | Medium       | Low           |
+| Cost of Development    | Medium       | Low          | High          |
+| Ease of Development    | Low          | High         | Low-Medium    |
+| Interface Capabilities | Low          | High         | High          |
+| Control & Security     | High         | Low          | Medium        |
+| Scalability            | Low          | Medium       | High          |
 
 
 ㅤ
