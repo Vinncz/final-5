@@ -13,6 +13,8 @@ __Composed by:__
 > 2501977941 - Kevin Gunawan
 >
 > ChatGPT (Best Boi)
+>
+> Bard (Good Boi)
 
 ㅤ
 
@@ -255,9 +257,16 @@ Sebelum lu bisa uji suatu code, lu harus:
 
 > Remember, without documentation, your system's a recipe for disaster! So grab your pen, write it down, and avoid the mystery-meat madness!
 
-System documentation is like a detailed recipe for building and maintaining a complex system.
+Dokumentasi adalah penjelasan dari sistem (bagaimana kerjanya, bagaimana menggunakannya, apa yang harus dilakukan jika mau develop the system further).
 
-It's not just an optional garnish, but a core ingredient that ensures everything functions smoothly and deliciously.
+Dokumentasi dibagi menjadi 2:
+
+- **System Documentation**: that assists programmers/analyst to build and maintain the system
+    
+- **User Documentation**: that assists users on how to operate the system; as most of them will not read the manual before using the system.
+
+ㅤ
+
 
 Here's why it's so important:
 
@@ -293,14 +302,18 @@ Here's why it's so important:
 
     - Documentation ensures the system's longevity and value even when the original developers move on.
 
+ㅤ
+
+
 Types of Documentation:
 
-- **System Documentation**: that assists programmers/analyst to build and maintain the system
-- **User Documentation**: that assists users on how to operate the system; as most of them will not read the manual before using the system.
+- **Reference Documents**: tell users on how to perform a SPECIFIC tasks. (Focuses on simple, often singular, little things)
 
-- **Reference Documents**: tell operators on how to perform a specific tasks.
-- **Procedure Manuals**: describes how to perorm business tasks; and where each procedure entails multiple tasks
-- **Tutorials**: teach people on how to use specific components of a system.
+- **Procedure Manuals**: describes how to perorm business tasks; and where each procedure entails multiple tasks.(Focuses on the broader how-to)
+
+- **Tutorials**: teach people on how to use specific components of a system. (Broadest of them all, often using video as the format)
+
+ㅤ
 
 Structure of a Documentation:
 1. Develop a set of navigation controls that spans different topics of documentation.
@@ -311,31 +324,93 @@ Structure of a Documentation:
      - WNDs
      - Real use-cases
    - Definitions of important terms
-ㅤ
 
+ㅤ
 
 ## Case
 
-### Analysing Architecture
-A system consists of two parts:
+### 1.) Analysing Architecture
 
-> **Software Components**
->
-> Which includes:
->  - Data storage
->  - Data access logic
->  - Application logic
->  - Presentation logic
-
-> **Hardware Components**
->
-> Which includes:
-> - Clients
-> - Servers
-> - Network that connects both of the above
+Architecture basically ngebahas: **`software apa jalan di hardware mana`**.
 
 \
-In response to this, there exsits the following infrastructure:
+Ada 6 poin yang harus diingat:
+1. Jika bandingin beli infrastructure atau sewa, **`mahalan yang mana`**?
+2. Apakah **`mahal untuk develop`** system di infra tsb?
+3. Apa **`susah`** bikin system di infra tsb?
+4. **`Kelebihan`** infra tsb apa kembanding infra yang lain?
+5. Infra-nya aman gak? Seberapa **`ketat keamanannya`**?
+6. Jika demand-nya bertambah, apa infra tsb **`gampang untuk di-scale up`**?
+
+\
+Architecture ada 2 komponennya:
+
+1. **Software Components**
+   
+   yang membahas tentang
+   - dimana lu simpan data, pakai apa?
+   - gimana lu retrieve data, pakai aplikasi khusus API ato manual query SQL?
+   - logic apa yang ada di dalam apl (business logic)?
+   - presentation logic
+   
+2. **Hardware Components**
+   
+   yang membahas tentang
+   - siapa client dari sistem lu? (user's device -- e.g. komputer, hp, dll)
+   - spec dari server (intel i5 12xxx), pelengkap server (mounting rack, kipas, dll) apa?
+   - jaringan yang connects antar device apa? (pakai dial-up, high-speed fiber, dll)
+
+\
+Macam-macam architecture ada 3:
+1. **Server-based architecture**
+   
+   - **`Client terima jadi`**
+   
+   - Semua pekerjaan (data storage, data access logic, app logic, presentation logic) terjadi di server.
+   
+2. **Client-based architecture**
+   
+   - **`Server hanya menyimpan data`**
+   
+   - Client melakukan mayoritas pekerjaan (data access logic, app logic, dan presentation logic)
+   
+   - Network traffic akan mahal pakai infra ini.
+   
+   - Rentan ada bottleneck.
+   
+3. **Client-server architecture**
+   
+   - **`Perkerjaan dibagi-bagi`**
+   
+   - Ada 3 macam Client-server architecture
+     
+     - **2-tier**
+       
+       1 server u/ data storage & data access logic;
+       
+       `client` u/ app logic & presentation logic.
+       
+     - **3-tier**
+       
+       1 server u/ dataa storage & data access logic
+       
+       1 server u/ application logic
+       
+       `client` u/ presentation logic
+       
+     - **n-tier**
+       
+       n server u/ application logic
+       
+       n server u/ data storage
+       
+       n server u/ data access logic
+       
+       `client` u/ presentation logic
+       
+
+\
+The following table shows the difference between architectures:
 |                        | Server-based | Client-based | Client-Server |
 | ---------------------- | ------------ | ------------ | ------------- |
 | Cost of Infrastructure | Very High    | Medium       | Low           |
@@ -345,11 +420,48 @@ In response to this, there exsits the following infrastructure:
 | Control & Security     | High         | Low          | Medium        |
 | Scalability            | Low          | Medium       | High          |
 
+ㅤ
 
 ㅤ
 
-### Infrastructure Design in Deployment Diagram & Network Model
+### 2.) Infrastructure Design in Deployment Diagram & Network Model
 
+![deploy diag](deployment_diagram.png)
+
+**Deployment Diagram** memperlihatkan hubungan antara `software apa yang dijalankan di hardware apa` DAN hubungan antara `hardware dengan hardware`.
+
+Pada gambar diatas, kotak 3d menggambarkan Nodes, dan kotak hijau didalamnya menggambarkan Artifacts.
+
+Elemen di deploy diagram ada 3:
+
+- **Nodes**
+  
+  Bagian dari hardware (Client device, Router, Server, etc.)
+  
+- **Artifacts**
+  
+  Software yang dijalankan didalam node
+  
+- **Communication paths**
+  
+  Penghubung antara artifacts
+
+ㅤ
+
+![network model](network_model.png)
+
+**Network model** menggambarkan **secara garis besar** `koneksi antar geolokasi` (antar gedung, antar lantai).
+
+Network model ada untuk:
+- Convey betapa ribetnya system yang sudah ada
+
+- Memperlihatkan hardware apa yang ada di suatu lokasi
+
+- Memperlihatkan hardware apa connect dengan apa
+
+ㅤ
+
+---
 **Deployment Diagram**: This is like the blueprint of your castle. It shows all the important parts:
 
 - **Towers**: These are your software components, like the main hall, kitchen, or dragon stables (metaphorically speaking!).
