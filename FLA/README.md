@@ -19,6 +19,12 @@ __Composed by:__
 
 ## Structural Patterns
 
+ABCDFFP
+
+Adapter Bridge Composite Decorator Facade Flyweight Proxy
+
+> Ada Ridge's Compost Decorate her Proxy Facade quite Flyweightly.  
+
 ### Adapter
 Bayangin ada dua interfaces yang berbeda.
 ```java
@@ -137,28 +143,39 @@ Sekarang tempelin wiper-nya ke mobil. Wiper itu sekarang adalah bagian dari mobi
 By itself, dia gabisa utilize water sprayer-nya si mobil; tapi setelah mobil dipasangkan wipernya, kaca bisa di-wipe, dan water sprayer akhirnya berguna sekarang.
 
 ```java
-public class CarWiper {
-    ...
+interface DecoratableComponent {
+    void operation();
 }
 
-public class Car {
-//           ↑ class decorator
-//             sebab ia memegang reference ke class lain
+interface Decorator extends DecoratableComponent {
+    DecoratableComponent getDecoratedComponent();
+}
 
-    private CarWiper wiper;
+class ConcreteComponent implements DecoratableComponent {
+    @Override
+    public void operation() {
+        System.out.println("Concrete component operation");
+    }
+}
 
-    public void attachWiper (CarWiper _w) {
-        this.wiper = _w
+class ConcreteDecorator implements Decorator {
+    private DecoratableComponent decoratedComponent;
+
+    public ConcreteDecorator(DecoratableComponent decoratedComponent) {
+        this.decoratedComponent = decoratedComponent;
     }
 
-    public void cleanWindow () {
-//               ↑ class decorator mendapat functionality
-//                 baru akibat wiper dipasang
+    @Override
+    public void operation() {
+        // Add additional behavior before or after
+        System.out.println("Decorator added behavior before");
+        decoratedComponent.operation();
+        System.out.println("Decorator added behavior after");
+    }
 
-        if ( this.wiper == null )
-            throw new RuntimeException("Wiper is not attached");
-
-        ...
+    @Override
+    public DecoratableComponent getDecoratedComponent() {
+        return decoratedComponent;
     }
 }
 ```
@@ -206,38 +223,52 @@ Method diatas 'mahal' sebab ia selalu membuat object instance dari class `Color`
 \
 Solusinya menggunakan `Flyweight` pattern ialah dengan meng-introduce caching:
 ```java
-public interface Color {
-    public void setColor (int r, int g, int b);
-    public void printColor ();
+interface MenuItem {
+    void display(int tableNumber);
 }
 
-public class SharedColor implements Color {
-    private int r;
-    private int g;
-    private int b;
+class ConcreteMenuItem implements MenuItem {
+    private final String name;
+    private final String description;
+    private final double price;
 
-    public SharedColor (int _r, int _g, int _b) {
-        this.r = _r;
-        this.g = _g;
-        this.b = _b;
+    public ConcreteMenuItem(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
     }
 
-    public void printColor() {
-        ...
+    @Override
+    public void display(int tableNumber) {
+        System.out.println("Order for table " + tableNumber + ":");
+        System.out.println("- " + name + " - " + description + " - $" + price);
     }
 }
 
-public class ColorFactory {
+class MenuFactory {
+    private final Map<String, MenuItem> menuItems = new HashMap<>();
 
-    //                   ↓ caching disini
-    private static final Map<String, Color> colorMap = new HashMap<>();
+    public MenuItem getMenuItem(String name) {
+        if (!menuItems.containsKey(name)) {
+            menuItems.put(name, new ConcreteMenuItem(name, description, price));
+        }
+        return menuItems.get(name);
+    }
+}
 
-    public Color make (int _r, int _g, int _b) {
-        String key = _r + ", " + _g + ", " + _b;
-        return colorMap.computeIfAbsent(key, k -> {
-            SharedColor newColor = new SharedColor(_r, _g, _b);
-            return newColor;
-        });
+public class Restaurant {
+    private final MenuFactory menuFactory = new MenuFactory();
+
+    public void takeOrder(String itemName, int tableNumber) {
+        MenuItem menuItem = menuFactory.getMenuItem(itemName);
+        menuItem.display(tableNumber);
+    }
+
+    public static void main(String[] args) {
+        Restaurant restaurant = new Restaurant();
+        restaurant.takeOrder("Burger", 12);
+        restaurant.takeOrder("Pizza", 4);
+        // Both orders share the same Burger and Pizza flyweight instances
     }
 }
 ```
@@ -298,8 +329,51 @@ class UserRepositoryProxy implements UserDatabaseTableAccessor {
 
 ## Behavorial Patterns
 
+CoRCSSMOTMV
+
+CoR, Command Strategy State, Momento, Observer, Template Method, Visitor, Iterator, Mediator
+
+> `State` `Command` is the `Responsibility` of the `Observer`, whose `Moment` is `Templated` by the `Visitor` whose `Strategy` is to `Chain` anything to anything.
+
+ㅤ
+
 ### Chain of Responsibility
-This is the Chain of Responsibility pattern!
+Intelligently passes on the unprocessable request to the next handler.
+
+```java
+public interface Handler {
+    public void handle();
+    public boolean canHandle();
+    public void setNextHandler();
+}
+
+public class ConcreteHandler1 implements Handler {
+    private Handler nextHandler;
+    
+    public ConcreteHandler1 () {}
+    
+    @Override
+    public void handle () {
+        if ( this.canHandle() ) {
+            ...
+            
+        } else {
+            nextHandler.handle();
+            
+        }
+    }
+    
+    @Override
+    public boolean canHandle () {
+        ...
+    }
+    
+    @Override
+    public void setNextHandler (Handler _h) {
+        this.nextHandler = _h;
+    }
+}
+```
 
 ㅤ
 
@@ -307,6 +381,8 @@ This is the Chain of Responsibility pattern!
 Yang membedakan Command pattern dengan Strategy adalah:
 
 > **COMMAND DITARUH DI CLASS YANG MENGURUS CLASS LAIN:**
+
+ - DIASOSIASI DENGAN ABSTRACT CLASS
 
  - Imagine lu pesen Boba Sundae di Mixue;
 
@@ -336,6 +412,8 @@ Yang membedakan Command pattern dengan Strategy adalah:
 
 Perbedaannya adalah
 > PADA STATE PATTERN, CLASS ITU SENDIRI BISA MENGGANTI STATE YANG DIMILIKINYA; DIMANA STRATEGY HARUS DIATUR DARI LUAR
+
+![Differences](image.png)
 
 ㅤ
 
