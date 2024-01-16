@@ -17,11 +17,15 @@ __Composed by:__
 
 ㅤ
 
-## Structural Patterns
+## Structural Patterns (7)
 
-ABCDFFP
-
-Adapter Bridge Composite Decorator Facade Flyweight Proxy
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Flyweight
+- Facade
+- Proxy
 
 > Ada Ridge's Compost Decorate her Proxy Facade quite Flyweightly.  
 
@@ -327,13 +331,20 @@ class UserRepositoryProxy implements UserDatabaseTableAccessor {
 
 ㅤ
 
-## Behavorial Patterns
+## Behavorial Patterns (10)
 
-CoRCSSMOTMV
+- CoR
+- State
+- Strategy
+- Command
+- Mediator
+- Iterator
+- Visitor
+- Template Method
+- Observer
+- Momento
 
-CoR, Command Strategy State, Momento, Observer, Template Method, Visitor, Iterator, Mediator
-
-> `State` `Command` is the `Responsibility` of the `Observer`, whose `Moment` is `Templated` by the `Visitor` whose `Strategy` is to `Chain` anything to anything.
+> `State` `Command` is the `Responsibility` of the `Observer`, whose `Moment` is `Templated` by the `Visitor` whose `Strategy` is to `Chain` the `Iterator` to the `Mediator`.
 
 ㅤ
 

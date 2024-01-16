@@ -255,9 +255,22 @@ Sebelum lu bisa uji suatu code, lu harus:
 
 ### Developing Documentation
 
-> Remember, without documentation, your system's a recipe for disaster! So grab your pen, write it down, and avoid the mystery-meat madness!
-
 Dokumentasi adalah penjelasan dari sistem (bagaimana kerjanya, bagaimana menggunakannya, apa yang harus dilakukan jika mau develop the system further).
+
+ㅤ
+
+Dokumentasi ada, karena:
+
+1. anggaplah lu bikin lego.
+2. lu gabisa asal tempelin lego block, untuk menjadi sesuatu yang bagus
+3. paling setidaknya, lu perlu gambaran apa yang mau dibuat agar block yang benar bisa ditaro ditempat yang benar.
+
+> Atau, lihat juga dari sudut pandang yang pakai dokumentasi:
+> - **New people joining the team**: It's like a welcome pack for new folks, giving them a quick crash course on the system without having to bug everyone else for help.
+> - **Coming back to a system after a while**: It's like a refresher course when you've been away from a project for a bit and need a reminder of how things work.
+> - **Troubleshooting a problem**: It's like having a mechanic's manual for when things go wrong, helping you diagnose issues and find solutions.
+
+ㅤ
 
 Dokumentasi dibagi menjadi 2:
 
@@ -266,7 +279,6 @@ Dokumentasi dibagi menjadi 2:
 - **User Documentation**: that assists users on how to operate the system; as most of them will not read the manual before using the system.
 
 ㅤ
-
 
 Here's why it's so important:
 
