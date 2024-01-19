@@ -225,4 +225,11 @@ Ada 3 service model cloud:
    - Provider handle agar lu bisa terus ngakses dev environment ini.
 
 
+#### Separation of Responsibilities
+![Separation of responsibilities](separation_of_responsibilities.png)
 
+
+#### Cloud Operating System
+Merupakan versi khusus OS yang lebih ***beefy*** untuk menghandle high-performance servers, network, dan fast access storage.
+
+> Embodiment dari IaaS dalam satu software.
