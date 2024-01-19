@@ -180,9 +180,49 @@ int main (int argc, char* agrv[]) {
 
 ㅤ
 
-### Cloud (belajar yang umum)
-This is Cloud (belajar yang umum)!
+### Cloud 
+Merupakan satu tipe **`infrastructure`**, yang **`memungkinkan penggunanya untuk meng-harness power dari hardware dan software`** milik provider, secara:
+- on demand,
+- dari jauh, 
+- via interface -- sehingga user tidak bisa communicate directly dengan hardware/software.
+
+\
+**`Infrastructure`** membahas tentang **`Software APA jalan di Hardware MANA`**.
+
+\
+Ada 3 service model cloud:
+
+> Imagine lu perlu mobil ke kampus. Pilih yang mana?
+
+1. **Software as a Service (SaaS)**
+   
+   > **Ready-made stock car**: Isi bensin (masukin app-lu), abis itu gaskan.
+   
+   - Lu akses software yang dijalanin di server provider.
+   
+   - Gaperlu install local, udah bisa jalan.
+   
+   - Provider handle apapun yang bakal efek ke kelancaran software yang dijalankan (hardware, dependency, internet connections)
+   
+2. **Infrastructure as a Service (IaaS)**
+   
+   > **Bare-metal chasis**: mesin, body, roda, tanki (server, network config, tetebengek) atur sendiri sesuai kebutuhan. Kalo udah kepasang, isi bensin (masukin app-lu), baru gaskan.
+   
+   - Lu nyewa virtual server, storage, dan networking stuff.
+   
+   - Security thdp virtual server, aplikasi apa yang dijalanin, dan version OS yang jalan di virtual server ditanggung customer.
+   
+   - Provider handle agar lu bisa akses virtual server: kapanpun, dimanapun.
+   
+3. **Platform as a Service (PaaS)**
+   
+   > **Pre-tuned race car**: modif sendiri (config) apa yang kurang, isi bensin (masukin app-lu), trus gaskan.
+   
+   - Lu akses dev environment di server provider. 
+   
+   - Lu bisa taruh/jalanin apapun di environment lu.
+   
+   - Provider handle agar lu bisa terus ngakses dev environment ini.
 
 
-ㅤ
 
