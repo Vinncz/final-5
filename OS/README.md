@@ -13,6 +13,8 @@ __Composed by:__
 > 2501977941 - Kevin Gunawan
 >
 > ChatGPT (Best Boi)
+>
+> Bard (Good Boi)
 
 ㅤ
 
@@ -30,7 +32,7 @@ There are 5 ways to organize a file:
    
    - Ukurannya gak uniform, bisa lebih gede/kecil dari yang lain
     
-   - Bisa nyari suatu data dengan mencarinya satu-per-satu.
+   - Nyari data disini via ***`exhaustive linear search`***.
    
 2. **Sequence**
    
@@ -43,37 +45,14 @@ There are 5 ways to organize a file:
 3. **Index**
    
    - Bisa pakai variable-length records.
+  
+   - Variable-length records-nya itu ada dalam bentuk **`overflow file`**.
    
-   - Semua records didata di index, sehingga size nya bisa besar.
-   
-   - Imagine you have a huge stack of notebooks filled with notes for different subjects. Finding a specific note can be a pain, right? Indexed file organization is like having a handy cheat sheet with the page numbers for each topic.
-
-   - Here's how it works:
-
-     Each notebook gets a label: This is like the record key, a unique identifier for each notebook (e.g., "Biology - Photosynthesis").
-     
-     \
-     You create a separate list: This is the index, where you write down the notebook labels and the page numbers where they start.
-     
-     \
-     Now, finding a specific note is easy: Just check the index for the topic (e.g., "Photosynthesis"), see the page number, and flip straight to it! No more flipping through mountains of notes.
-     
-     \
-     Indexed file organization works the same way in computers. Instead of notebooks and notes, we have files and records. The index helps us find specific records quickly, without scanning through the entire file like reading every page of a notebook.
-     
-     \
-     This is especially useful when you have a massive dataset, like a library catalog or your music collection. Imagine trying to find a specific book or song without an index – it would take forever!
-     
-     \
-     So, indexed file organization is like a magic map for files, helping us find what we need in a flash, even in the biggest collection!
+   - Meskipun di index keliatannya data disimpan bersebelahan, kenyataannya di address mereka bisa berjauhan.
    
 4. **Indexed Sequence**
 
-   - Sama kayak index method, bedanya index disini ga akurat, hanya ngasih approximate location dimana sebuah record disimpan.
-   
-   - TLDR: meskkipun ada index, lu harus cari manual lagi.
-   
-   - Bisa jadi pros, sebab index tidak menjadi terlalu besar, sehingga lebih cepat dicari.
+   - Bedanya dengan **`indexed`** adalah, jika di index datanya nampak bersebelahan, maka begitu juga kondisinya di address.
 
 5. **Direct or Hash**
    
@@ -119,19 +98,28 @@ There are 5 ways to organize a file:
 ㅤ
 
 ### Fixed and Dynamic Partitioning, Buddy System
-![Fixed partitioning](image-3.png)
 
-Setiap block sudah dipartisi dari awal, dengan size yang predetermined.
+- **Fixed Partitioning**
 
-![Dynamic partitioning](image-2.png)
+  ![Fixed partitioning](image-3.png)
 
-Setiap block dialokasi pas dapet process, dengan size yang sesuai dengan process tsb.
+  ↑ Setiap block sudah dipartisi dari awal, dengan size yang predetermined.
+  
+  Process yang kecil masuk ke yang kecil, yang medium ke sedeng, dst. Mana yang paling pas.
 
-Ketika process tsb selesai, partisi tsb tidak hilang.
+- **Dynamic Partioning**
 
-![Buddy system](image-1.png)
+  ![Dynamic partitioning](image-2.png)
+  
+  ↑ Setiap block dialokasi pas dapet process, dengan size yang sesuai dengan process tsb.
+  
+  Ketika process tsb selesai, partisi tsb tidak hilang.
 
-Pakai 2^n untuk memecah setiap block.
+- **Buddy System**
+  
+  ![Buddy system](image-1.png)
+  
+  ↑ Pakai 2^n untuk memecah setiap block.
 
 
 ㅤ
@@ -150,9 +138,9 @@ Pakai 2^n untuk memecah setiap block.
 ㅤ
 
 ### Computer Security (Coding)
-`chmod(file's_path, mode_t)` is a fucntion that allows user to set a permission associated with a file.
+**`chmod(file's_path, mode_t)`** is a function that allows user to set a permission associated with a file.
 
-`chown(file's_path, uid_t, gid_t)` is a function that allows user to set the group/owner of a file.
+**`chown(file's_path, uid_t, gid_t)`** is a function that allows user to set the group/owner of a file.
 
 \
 **Dengan datatype:**
