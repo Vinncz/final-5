@@ -134,7 +134,7 @@ There are 5 ways to organize a file:
 | **OPTIMAL (OPT)**              | ketika full, ganti apa yang ada dengan page address yang masih jauh bakal kepakainya                                       |
 | **LEAST RECENTLY USED (LRU)**  | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, update 'kesegarannya')  |
 | **FIRST IN, FIRST OUT (FIFO)** | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, BIARKAN 'kesegarannya') |
-| **CLOCK**                      | God, help me on this one.                                                                                                  |
+| **CLOCK**                      | Buat 2 array: ADDRESSES untuk store **`page address`**, WORTHINESS u/ **`second chances`**. <br/><br/>Setelah input page address baru ke array ADRESSES, selalu turunin satu pointernya.<br/><br/>Ketika page sudah ada di array ADDRESS, buat value di array WORTHINESS jadi 1. <br/><br/> Ketika semua sudah penuh dan perlu masukin address baru, cek array WORTHINESS: jika value di array WORTHINESS pada index-nya pointer adalah 0, ganti value-nya di array ADRESSES dengan yang mau masuk -- jika value-nya 1 di array WORTHINESS, cukup ganti aja ke 0 dan pindahin pointernya maju sekali.<br/><br/>NOTE bahwa pointer hanya bekerja di array ADDRESSES -- jika ada update di array WORTHINESS, **`JANGAN`** update posisi pointer.
 
 
 ㅤ
