@@ -101,23 +101,25 @@ There are 5 ways to organize a file:
 
 - **Fixed Partitioning**
 
-  ![Fixed partitioning](image-3.png)
+  ![Fixed partitioning](fixed_partitioning.png)
 
   ↑ Setiap block sudah dipartisi dari awal, dengan size yang predetermined.
   
-  Process yang kecil masuk ke yang kecil, yang medium ke sedeng, dst. Mana yang paling pas.
+  ↑ Process yang kecil masuk ke yang kecil, yang medium ke sedeng, dst. Mana yang paling pas.
+  
+  ↑ Limits the number of active processes and may use space inefficiently if there is a poor match between available partition sizes and process sizes
 
 - **Dynamic Partioning**
 
-  ![Dynamic partitioning](image-2.png)
+  ![Dynamic partitioning](dynamic_partitioning.png)
   
   ↑ Setiap block dialokasi pas dapet process, dengan size yang sesuai dengan process tsb.
   
-  Ketika process tsb selesai, partisi tsb tidak hilang.
+  ↑ Ketika process tsb selesai, space yg sudah dipartisi resiko di-bound oleh process yang lain; sehingga tempat yang tersisa BISA AJA gak muat u/ process lain.
 
 - **Buddy System**
   
-  ![Buddy system](image-1.png)
+  ![Buddy system](buddy_system.png)
   
   ↑ Pakai 2^n untuk memecah setiap block.
 
@@ -125,7 +127,7 @@ There are 5 ways to organize a file:
 ㅤ
 
 ### Virtual Memory Management Basic Algorithms
-![Alt text](image.png)
+![Repalcement algorithms](repalcement_algorithms.png)
 
 | Algorithm                      | Conditions                                                                                                                 |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
