@@ -70,11 +70,32 @@ There are 5 ways to organize a file:
   
   Sesuai dengan urutan kerjaan dateng.
   
+  Seek time:
+  - `[50 to 176]ㅤ126ms`
+  - `[176 to 34]ㅤ142ms`
+  - `[34ㅤto 92]ㅤㅤ58ms`
+  - `[92ㅤto 11]ㅤㅤ81ms`
+  - `[11 to 114]ㅤ103ms`\
+  --------------------------- +\
+ㅤㅤㅤㅤㅤㅤㅤㅤ510ms
+  
 - **Shortest Seek Time First (SSTF)**
   
   ![SSTF](https://media.geeksforgeeks.org/wp-content/uploads/3333-4.png)
   
   Sesuai mana yang terdekat.
+  
+  Seek time:
+  - `[50 to 41]ㅤㅤ Xms`
+  - `[41 to 34]ㅤㅤ Xms`
+  - `[34ㅤto 11]ㅤㅤXms`
+  - `[11ㅤto 60]ㅤㅤXms`
+  - `[60 to 79]ㅤㅤXms`
+  - `[79 to 92]ㅤㅤXms`
+  - `[92 to 114]ㅤ Xms`
+  - `[114 to 176]ㅤXms`\
+  --------------------------- +\
+ㅤㅤㅤㅤㅤㅤㅤㅤXms
   
 - **Scan**
   
@@ -124,6 +145,22 @@ There are 5 ways to organize a file:
   ↑ Pakai 2^n untuk memecah setiap block.
 
 
+### Placement Algorithm
+![Placement algorithm](placement_algorithm.png)
+
+Ada 3:
+1. First fit
+   
+   Masukin process baru kemanapun yang available; DIMULAI DARI POSISI 0 DARI BEGINNING OF MEMORY
+   
+2. Best Fit
+   
+   Hanya masukin process ke tempat yang MOST CLOSELY resembles dengan size yang dia request.
+   
+3. Next Fit
+   
+   Masukin process baru kemanapun yang available; DI DEPAN cursor sekarang.
+
 ㅤ
 
 ### Virtual Memory Management Basic Algorithms
@@ -131,9 +168,9 @@ There are 5 ways to organize a file:
 
 | Algorithm                      | Conditions                                                                                                                 |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| **OPTIMAL (OPT)**              | ketika full, ganti apa yang ada dengan page address yang masih jauh bakal kepakainya                                       |
-| **LEAST RECENTLY USED (LRU)**  | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, update 'kesegarannya')  |
-| **FIRST IN, FIRST OUT (FIFO)** | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, BIARKAN 'kesegarannya') |
+| **OPTIMAL <br/>(OPT)**              | ketika full, ganti apa yang ada dengan page address yang masih jauh bakal kepakainya                                       |
+| **LEAST RECENTLY USED <br/>(LRU)**  | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, update 'kesegarannya')  |
+| **FIRST IN, FIRST OUT <br/>(FIFO)** | ketika full, ganti apa yang ada, dengan page address yang paling last-to-date (pas angka-nya sama, BIARKAN 'kesegarannya') |
 | **CLOCK**                      | Buat 2 array: ADDRESSES untuk store **`page address`**, WORTHINESS u/ **`second chances`**. <br/><br/>Setelah input page address baru ke array ADRESSES, selalu turunin satu pointernya.<br/><br/>Ketika page sudah ada di array ADDRESS, buat value di array WORTHINESS jadi 1. <br/><br/> Ketika semua sudah penuh dan perlu masukin address baru, cek array WORTHINESS: jika value di array WORTHINESS pada index-nya pointer adalah 0, ganti value-nya di array ADRESSES dengan yang mau masuk -- jika value-nya 1 di array WORTHINESS, cukup ganti aja ke 0 dan pindahin pointernya maju sekali.<br/><br/>NOTE bahwa pointer hanya bekerja di array ADDRESSES -- jika ada update di array WORTHINESS, **`JANGAN`** update posisi pointer.
 
 
