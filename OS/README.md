@@ -163,7 +163,7 @@ Ada 3:
 
 ㅤ
 
-### Virtual Memory Management Basic Algorithms
+### (Replacement Algo) Virtual Memory Management Basic Algorithms
 ![Repalcement algorithms](repalcement_algorithms.png)
 
 | Algorithm                      | Conditions                                                                                                                 |

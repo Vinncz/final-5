@@ -111,6 +111,17 @@ __Composed by:__
 
 ㅤ
 
+### Placement Algo
+
+1. **First Fit**
+   
+2. **Best Fit**
+   
+3. **Next Fit**
+   
+
+ㅤ
+
 ### (Replacement Algo) Virtual Memory Management Basic Algorithms
 1. **[OPT] Optimal**
    
@@ -193,3 +204,34 @@ if ( retval < 0 ) {
 ㅤ
 
 ### Cloud 
+Merupakan architecture yang memungkinkan penggunanya untuk menggunakan hardware dan software milik provider:
+- on demand
+- dari jauh
+- via interface
+
+Jasa bisnis di cloud dibagi 3:
+1. Software as a Service (SaaS)
+   
+   Customer akses software yang sudah jadi, yang dijalankan di server provider
+   
+2. Platform as a Service (PaaS)
+   
+   Customer dapat mengakses dev env di server provider, yang memungkinkannya untuk dengan cepat meng-develop aplikasinya. Customer bisa otak-atik sedikit, tapi pretty much udah di-set up sama provider.
+   
+3. Infrastructure as a Service (IaaS)
+   
+   Customer dapat mengakses virtual server yang dihosting di server provider. Customer mendapat paling banyak kontrol dengan ini.
+
+
+> IaaS
+> > PaaS
+> > - Aplikasi
+> > - Data
+> - Runtime
+> - Middleware
+> - OS
+
+- Virtualization
+- Servers
+- Storage
+- Networking
